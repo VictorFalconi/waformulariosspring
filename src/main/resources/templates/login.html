@@ -11,7 +11,7 @@
             Autenticación
         </div>
         <div class="card-body">
-            <form th:action="${/login}" method="post" th:object="${loginModel}">
+            <form th:action="@{/login}" method="post" th:object="${loginModel}">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="txtusuario"
                            placeholder="name@example.com" th:field="*{usuario}">
@@ -24,7 +24,8 @@
                 </div>
                 <hr/>
                 <button type="submit" class="btn btn-primary">Ingresar</button>
-                <div class="alert alert-danger" role="alert">
+                <div th:if="${mostrarMensaje}" class="alert alert-danger" role="alert">
+                    <span th:text="${mensaje} ?: ''"></span>
                 </div>
             </form>
         </div>
